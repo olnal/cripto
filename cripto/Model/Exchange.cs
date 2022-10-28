@@ -4,11 +4,16 @@ using System.Text;
 
 namespace cripto.Model
 {
-    internal class Exchange
+    public class ExArr
     {
-        public string exchangeId{set;get;}
-        public string name {set;get;}   
-        public string website {set;get;}
-        public double volume_24h { set;get;}
+        public Exchange[] exchanges { get; set; }
+    }
+
+    public class Exchange
+    {
+        public string exchange_id { get; set; }
+        public string name { get; set; }
+        public string website { get; set; }
+        public float volume_24h { get; set; }
     }
 }

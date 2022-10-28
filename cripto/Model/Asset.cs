@@ -4,6 +4,10 @@ using System.Text;
 
 namespace cripto.Model
 {
+    internal class AssetArr
+    {
+        public Asset[] assets;
+    }
     internal class Asset
     {
         public string assetId { get; set; }

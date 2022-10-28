@@ -6,10 +6,10 @@ namespace cripto.Model
 {
     internal class Market
     {
-        public Exchange exchange { get; set; }
+        public string exchange_id { get; set; }
         public string symbol { get; set; }
-        public Asset baseAssest { get; set; }
-        public Asset quoteAssest { get; set; }
+        public string base_assest { get; set; }
+        public string quote_assest { get; set; }
         public double priceUnconverted { get; set; }
         public double price { get; set; }
         public double change_24h { get; set; }

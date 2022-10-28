@@ -1,5 +1,8 @@
-﻿using System;
+﻿using cripto.Data;
+using cripto.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,13 @@ namespace cripto
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FillData.Initialize();
+            trainTextBox.Text = "";
+            
         }
     }
 }
