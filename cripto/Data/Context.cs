@@ -1,10 +1,10 @@
-﻿using cripto.Model;
+﻿using crypto.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
 
-namespace cripto.Data
+namespace crypto.Data
 {
     internal class Context:IDisposable
     {

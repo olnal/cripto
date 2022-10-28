@@ -1,9 +1,9 @@
-﻿using cripto.Data;
+﻿using crypto.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace cripto.Model
+namespace crypto.Model
 {
     internal class AssetsList:GeneralList<Asset>
     {

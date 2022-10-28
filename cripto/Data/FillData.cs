@@ -1,4 +1,4 @@
-﻿using cripto.Model;
+﻿using crypto.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows;
 
-namespace cripto.Data
+namespace crypto.Data
 {
     internal static class FillData
     {

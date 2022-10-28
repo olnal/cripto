@@ -1,5 +1,6 @@
-﻿using cripto.Data;
-using cripto.Model;
+﻿using crypto.Data;
+using crypto.Model;
+using crypto.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace cripto
+namespace crypto
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,14 +26,15 @@ namespace cripto
     {
         public MainWindow()
         {
+            var context = new Context();
+            FillData.Initialize();
             InitializeComponent();
+            MainFrame.Content = new MainPage();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FillData.Initialize();
-            trainTextBox.Text = "";
-            
+                        
         }
     }
 }

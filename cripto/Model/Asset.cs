@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace cripto.Model
+namespace crypto.Model
 {
     internal class AssetArr
     {
