@@ -4,6 +4,10 @@ using System.Text;
 
 namespace cripto.Model
 {
+    internal class MarketArr
+    {
+        public Market[] markets;
+    }
     internal class Market
     {
         public string exchange_id { get; set; }
