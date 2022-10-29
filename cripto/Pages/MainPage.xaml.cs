@@ -23,10 +23,10 @@ namespace crypto.Pages
     {
         private readonly IClient _client;
 
-        public MainPage()
+        public MainPage(IClient client)
         {
             InitializeComponent();
-            _client = new Client();
+            _client = client;
             
         }
 

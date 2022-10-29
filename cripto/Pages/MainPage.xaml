@@ -12,6 +12,8 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Label Content="Top Currencies" Grid.Row="0"></Label>
@@ -20,7 +22,11 @@
                 <Button MaxWidth="100"  Click="buttonGetAsset" Margin="-250,0,240,-0">Get Asset</Button>
                 <Button MaxWidth="100"  Click="buttonGetMarket" Margin="0,0,240,0">Get Market</Button>
             </Grid>
+        </StackPanel>
+        
+            <StackPanel Grid.Row="1" Grid.RowSpan="3" Orientation="Horizontal"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                <Frame Name="DataView" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden" ></Frame>
             </StackPanel>
-        <Frame Name="DataView" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden"></Frame>
+        
     </Grid>
 </Page>

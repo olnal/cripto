@@ -24,21 +24,23 @@ namespace crypto
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly IClient _client;
         public MainWindow()
         {
+            _client = new Client();
             InitializeComponent();
-            MainFrame.Content = new MainPage();
+            MainFrame.Content = new MainPage(_client);
         }
 
         private void btnClickP1(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Content = new MainPage(_client);
 
         }
 
         private void btnClickP2(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Content = new Detail(_client);
         }
     }
 }

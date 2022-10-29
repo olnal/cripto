@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -35,63 +36,35 @@ namespace crypto.Data
             this.assetList = new List<Asset>();
         }
 
-
         public async Task<List<Asset>> GetAsset()
         {
-            using HttpResponseMessage response = await _httpClient.GetAsync("https://cryptingup.com/api/assets?size=100&start=1");
+            using HttpResponseMessage response = await _httpClient.GetAsync("assets?size=100&start=100");
             using HttpContent content = response.Content;
             string myContent = await content.ReadAsStringAsync();
-            AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);
-            for (int i = 0; i < json.assets.Length; i++)
-            {
-                assetList.Add(json.assets[i]);
-            }
-            return assetList;
+            AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);            
+            return json.assets.ToList<Asset>();
         }
-
-
-
-
         public async Task<List<Exchange>> GetExchange()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                using (HttpResponseMessage response = await client.GetAsync("https://cryptingup.com/api/exchanges"))
-                {
-                    using (HttpContent content = response.Content)
-                    {
-                        string myContent = await content.ReadAsStringAsync();
-                        ExArr json = JsonConvert.DeserializeObject<ExArr>(myContent);
-
-                        for (int i = 0; i < json.exchanges.Length; i++)
-                        {
-                            exchangeList.Add(json.exchanges[i]);
-                        }
-                        return exchangeList;
-                    }
-                }
-            }
-
+            using HttpResponseMessage response = await _httpClient.GetAsync("exchanges");
+            using HttpContent content = response.Content;
+            string myContent = await content.ReadAsStringAsync();
+            ExArr json = JsonConvert.DeserializeObject<ExArr>(myContent);
+            return json.exchanges.ToList<Exchange>();
         }
 
         public async Task<List<Market>> GetMarket()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                using (HttpResponseMessage response = await client.GetAsync("https://cryptingup.com/api/markets?size=100&start=1"))
-                {
-                    using (HttpContent content = response.Content)
-                    {
-                        string myContent = await content.ReadAsStringAsync();
-                        MarketArr json = JsonConvert.DeserializeObject<MarketArr>(myContent);
-                        for (int i = 0; i < json.markets.Length; i++)
-                        {
-                            marketsList.Add(json.markets[i]);
-                        }
-                        return marketsList;
-                    }
-                }
-            }
+            using HttpResponseMessage response = await _httpClient.GetAsync("markets?size=100&start=1");
+            using HttpContent content = response.Content;
+            string myContent = await content.ReadAsStringAsync();
+            MarketArr json = JsonConvert.DeserializeObject<MarketArr>(myContent);
+            return json.markets.ToList<Market>();            
+        }
+        public Asset GetAssetSearch(string search)
+        {
+            //TODO
+            return new Asset();
         }
     }
 }
