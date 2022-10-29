@@ -1,6 +1,5 @@
 ﻿using crypto.Data;
 using crypto.Model;
-using crypto.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,13 +25,15 @@ namespace crypto
     {
         public MainWindow()
         {
-            var context = new Context();
-            FillData.Initialize();
-            InitializeComponent();
-            MainFrame.Content = new MainPage();
+            var context = new Context();            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnClickP1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClickP2(object sender, RoutedEventArgs e)
         {
                         
         }

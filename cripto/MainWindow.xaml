@@ -9,31 +9,18 @@
     <Window.Resources>
         <SolidColorBrush x:Key="TextBoxBackground1" Color="White"/>
     </Window.Resources>
-    <Grid Margin="0,0,0,0" >
-        <Grid Margin="0,2,0,377" Height="55" Width="Auto">
-            <Grid.Background>
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
+            <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF480606"/>
-                    <GradientStop Color="#FFE27373" Offset="1"/>
+                    <GradientStop Color="#FF1C1414" Offset="0.113"/>
+                    <GradientStop Color="#FF554E4E" Offset="1"/>
                 </LinearGradientBrush>
-            </Grid.Background>
-        </Grid>
-        <Grid Margin="0,379,0,0" Height="55" Width="Auto">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF480606"/>
-                    <GradientStop Color="#FFE27373" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-        </Grid>
-        <Grid Height="340" Width="Auto">
-            <Frame Name="MainFrame" 
-               NavigationUIVisibility="Hidden"
-               Margin="0,0,0,0" 
-               Background="#FFF4C2C2"
-               
-               />
-        </Grid>
+            </StackPanel.Background>
+            <Button Content ="Main" MinWidth="100" Click="btnClickP1"></Button>
+            <Button Content="Detail" MinWidth="100" Margin="10,0,0,0" Click="btnClickP2"></Button>
+        </StackPanel>
+        <Frame x:Name="MainFrame" Margin="0,35,0,0" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
  

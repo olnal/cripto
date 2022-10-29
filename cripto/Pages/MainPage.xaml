@@ -8,17 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
 
-    <Grid Background="#FFC38686">
-        <WrapPanel Margin="10,10,640,290" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="178,20,492,300" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="335,20,335,300" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="492,20,178,300" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="660,20,10,300" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="20,184,650,136" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="178,184,492,136" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="335,184,335,136" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="492,184,178,136" Height="130" Width="130" Background="#FF2AB059" />
-        <WrapPanel Margin="660,184,10,136" Height="130" Width="130" Background="#FF2AB059" />
-
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Top Currencies" Grid.Row="0"></Label>
+            <Grid>
+                <Button MaxWidth="100" HorizontalAlignment="Left" Click="buttonGetExchange">Get Exchange</Button>
+                <Button MaxWidth="100"  Click="buttonGetAsset" Margin="-250,0,240,-0">Get Asset</Button>
+                <Button MaxWidth="100"  Click="buttonGetMarket" Margin="0,0,240,0">Get Market</Button>
+            </Grid>
+            </StackPanel>
+        <Frame Name="DataView" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>

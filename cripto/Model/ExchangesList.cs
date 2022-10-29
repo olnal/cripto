@@ -5,22 +5,13 @@ using System.Text;
 
 namespace crypto.Model
 {
-    internal class ExchangesList:GeneralList<Exchange>
+    internal class ExchangesList
     {
-        private readonly Context _context;
-        public ExchangesList(Context context)
+        private readonly DataExchanges _dataExchanges;
+        public ExchangesList(DataExchanges dataExchanges)
         {
-            _context = context;
+           this._dataExchanges=dataExchanges;
         }
-        //TODO
-        public override Exchange Get(string Id)
-        {
-            return null;
-        }
-        //TODO
-        public override List<Exchange> GetAll()
-        {
-            return null;
-        }
+        
     }
 }
