@@ -21,10 +21,10 @@ namespace crypto.Pages
     {
         public AssetView()
         {
-            DataAsset dataAsset = new DataAsset();
-            dataAsset.FillData();
-            CurrencyListAsset.ItemsSource = dataAsset.assetList;
             InitializeComponent();
+            Client context = new Client();
+            context.GetAsset();
+            CurrencyListAsset.ItemsSource = context.assetList;            
         }
     }
 }

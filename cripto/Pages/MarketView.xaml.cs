@@ -1,4 +1,5 @@
-﻿using System;
+﻿using crypto.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,9 @@ namespace crypto.Pages
         public MarketView()
         {
             InitializeComponent();
+            Client context = new Client();
+            context.GetMarket();
+            CurrencyListMarket.ItemsSource = context.marketsList;
         }
     }
 }

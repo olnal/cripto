@@ -21,10 +21,10 @@ namespace crypto.Pages
     {
         public ExchangeView()
         {
-            DataExchanges dataExchanges = new DataExchanges();
-            dataExchanges.FillData();
-            CurrencyListExchange.ItemsSource = dataExchanges.exchangeList;
             InitializeComponent();
+            Client context = new Client();
+            context.GetExchange();
+            CurrencyListExchange.ItemsSource = context.exchangeList;            
         }
     }
 }

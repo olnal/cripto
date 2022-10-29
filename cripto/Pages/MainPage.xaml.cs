@@ -26,11 +26,12 @@ namespace crypto.Pages
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         private async void buttonGetExchange(object sender, RoutedEventArgs e)
         {
-            
+            DataView.Content = new ExchangeView();
         }
 
         private async void buttonGetAsset(object sender, RoutedEventArgs e)
