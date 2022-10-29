@@ -5,11 +5,11 @@ using System.Text.Json.Serialization;
 
 namespace crypto.Model
 {
-    internal class AssetArr
+    public class AssetArr
     {
         public Asset[] assets;
     }    
-    internal class Asset
+    public class Asset
     {
         [JsonPropertyName("asset_id")]
         public string assetId { get; set; }

@@ -13,5 +13,18 @@ namespace cripto
     /// </summary>
     public partial class App : Application
     {
+       // private ServiceProvider serviceProvider;
+    
+        public App()
+        {
+           // ServiceCollection services = new ServiceCollection();
+            //ConfigureServices(services);
+            //serviceProvider = services.BuildServiceProvider();
+        }
+
+       /* private void ConfigureServices(ServiceCollection services)
+        {
+            services.AddSingleton<ICryptoClient, CryptoClient>();
+        }*/
     }
 }

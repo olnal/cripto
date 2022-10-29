@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,12 +20,17 @@ namespace crypto.Pages
     /// </summary>
     public partial class AssetView : Page
     {
-        public AssetView()
+        private readonly IClient _client;
+        public AssetView(IClient client)
         {
+            _client = client;
             InitializeComponent();
-            Client context = new Client();
-            context.GetAsset();
-            CurrencyListAsset.ItemsSource = context.assetList;            
         }
+
+        public async Task Get()
+        {
+            CurrencyListAsset.ItemsSource = await _client.GetAsset();
+        }
+       
     }
 }

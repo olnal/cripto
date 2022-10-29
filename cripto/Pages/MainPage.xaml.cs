@@ -21,27 +21,34 @@ namespace crypto.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        
+        private readonly IClient _client;
 
         public MainPage()
         {
             InitializeComponent();
+            _client = new Client();
             
         }
 
         private async void buttonGetExchange(object sender, RoutedEventArgs e)
         {
-            DataView.Content = new ExchangeView();
+            ExchangeView page = new ExchangeView(_client);
+            await page.Get();
+            DataView.Content = page;
         }
 
         private async void buttonGetAsset(object sender, RoutedEventArgs e)
         {
-            DataView.Content = new AssetView();
+            AssetView page = new AssetView(_client);
+            await page.Get();
+            DataView.Content = page;
         }
 
         private async void buttonGetMarket(object sender, RoutedEventArgs e)
         {
-            DataView.Content = new MarketView();
+            MarketView page = new MarketView(_client);
+            await page.Get();
+            DataView.Content = page;
         }
     }
 }

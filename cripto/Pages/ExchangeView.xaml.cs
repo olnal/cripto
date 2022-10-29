@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading.Tasks;
 
 namespace crypto.Pages
 {
@@ -20,12 +21,17 @@ namespace crypto.Pages
     /// </summary>
     public partial class ExchangeView : Page
     {
-        public ExchangeView()
+        private readonly IClient _client;
+
+        public ExchangeView(IClient client)
         {
-            InitializeComponent();
-            Client client = new Client();
-            client.GetExchange();
-            CurrencyListExchange.ItemsSource = client.exchangeList;            
+            _client = client;
+            InitializeComponent();           
+        }
+
+        public async Task Get()
+        {
+            CurrencyListExchange.ItemsSource = await _client.GetExchange();
         }
     }
 }

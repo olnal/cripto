@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,12 +20,17 @@ namespace crypto.Pages
     /// </summary>
     public partial class MarketView : Page
     {
-        public MarketView()
+        private readonly IClient _client;
+
+        public MarketView(IClient client)
         {
+            _client = client;
             InitializeComponent();
-            Client context = new Client();
-            context.GetMarket();
-            CurrencyListMarket.ItemsSource = context.marketsList;
+        }
+
+        public async Task Get()
+        {
+            CurrencyListMarket.ItemsSource = await _client.GetMarket();
         }
     }
 }

@@ -2,14 +2,17 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace crypto.Data
 {
-    internal class Client
+    public class Client : IClient
     {
         [JsonPropertyName("markets")]
         public List<Market> marketsList { get; set; }
@@ -19,32 +22,37 @@ namespace crypto.Data
 
         [JsonPropertyName("assets")]
         public List<Asset> assetList { get; set; }
-        public  Client()
+
+
+        private readonly HttpClient _httpClient = new HttpClient(new SocketsHttpHandler { PooledConnectionLifetime = TimeSpan.FromMinutes(1) })
         {
-            this.marketsList=new List<Market>();
-            this.exchangeList=new List<Exchange>();
-            this.assetList=new List<Asset>();
-        }
-        public  async void GetAsset()
+            BaseAddress = new Uri("https://cryptingup.com/api/")
+        };
+        public Client()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                using (HttpResponseMessage response = await client.GetAsync("https://cryptingup.com/api/assets?size=100&start=1"))
-                {
-                    using (HttpContent content = response.Content)
-                    {
-                        string myContent = await content.ReadAsStringAsync();
-                        AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);
-                        for (int i = 0; i < json.assets.Length; i++)
-                        {
-                            assetList.Add(json.assets[i]);
-                        }
-                    }
-                }
-            }
+            this.marketsList = new List<Market>();
+            this.exchangeList = new List<Exchange>();
+            this.assetList = new List<Asset>();
         }
 
-        public async void GetExchange()
+
+        public async Task<List<Asset>> GetAsset()
+        {
+            using HttpResponseMessage response = await _httpClient.GetAsync("https://cryptingup.com/api/assets?size=100&start=1");
+            using HttpContent content = response.Content;
+            string myContent = await content.ReadAsStringAsync();
+            AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);
+            for (int i = 0; i < json.assets.Length; i++)
+            {
+                assetList.Add(json.assets[i]);
+            }
+            return assetList;
+        }
+
+
+
+
+        public async Task<List<Exchange>> GetExchange()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -59,12 +67,14 @@ namespace crypto.Data
                         {
                             exchangeList.Add(json.exchanges[i]);
                         }
+                        return exchangeList;
                     }
                 }
             }
+
         }
 
-        public async void GetMarket()
+        public async Task<List<Market>> GetMarket()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -78,6 +88,7 @@ namespace crypto.Data
                         {
                             marketsList.Add(json.markets[i]);
                         }
+                        return marketsList;
                     }
                 }
             }
