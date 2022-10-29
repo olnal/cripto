@@ -4,22 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Windows.Controls;
 
 namespace crypto.Data
 {
     internal class Client
     {
-        public List<Market> marketsList;
-        public List<Exchange> exchangeList;
-        public List<Asset> assetList;
-        public Client()
+        [JsonPropertyName("markets")]
+        public List<Market> marketsList { get; set; }
+
+        [JsonPropertyName("exchanges")]
+        public List<Exchange> exchangeList { get; set; }
+
+        [JsonPropertyName("assets")]
+        public List<Asset> assetList { get; set; }
+        public  Client()
         {
             this.marketsList=new List<Market>();
             this.exchangeList=new List<Exchange>();
             this.assetList=new List<Asset>();
         }
-        public async void GetAsset()
+        public  async void GetAsset()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -55,8 +61,6 @@ namespace crypto.Data
                         }
                     }
                 }
-
-
             }
         }
 

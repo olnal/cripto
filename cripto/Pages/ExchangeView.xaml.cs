@@ -1,4 +1,5 @@
 ﻿using crypto.Data;
+using crypto.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,9 +23,9 @@ namespace crypto.Pages
         public ExchangeView()
         {
             InitializeComponent();
-            Client context = new Client();
-            context.GetExchange();
-            CurrencyListExchange.ItemsSource = context.exchangeList;            
+            Client client = new Client();
+            client.GetExchange();
+            CurrencyListExchange.ItemsSource = client.exchangeList;            
         }
     }
 }

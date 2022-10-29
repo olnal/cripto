@@ -9,16 +9,18 @@
       Title="AssetView">
 
     <Grid Background="White">
-        <ListView Name="CurrencyListAsset" VerticalAlignment="Top" Grid.Row="1" ItemsSource="{Binding Assets}" HorizontalContentAlignment="Left">
+        <ListView Name="CurrencyListAsset" VerticalAlignment="Top" Grid.Row="1" ItemsSource="{Binding assets}" HorizontalContentAlignment="Left">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Asset_id}">Asset ID</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Name}">Name</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Price}">Price</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Change_1h}">Change 1h</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Change_24h}">Change 24h</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Change_7d}">Change 7d</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Volume_24h}">Volume 24</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= asset_id}">Asset ID</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= name}">Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= volume_24h}">Volume 24</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= change_1h}">Change 1h</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= change_24h}">Change 24h</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= change_7d}">Change 7d</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= status}">Status</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= created_at}">Created at</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= updated_at}">Updated at</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

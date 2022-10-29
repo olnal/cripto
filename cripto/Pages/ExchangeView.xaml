@@ -9,13 +9,13 @@
       Title="ExchangeView">
 
     <Grid Background="White">
-        <ListView Name="CurrencyListExchange" VerticalAlignment="Top" Grid.Row="1" ItemsSource="{Binding Assets}" HorizontalContentAlignment="Left">
+        <ListView Name="CurrencyListExchange" VerticalAlignment="Top" Grid.Row="1" ItemsSource="{Binding exchanges}" HorizontalContentAlignment="Left">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path= exchange_id}">Exchange_id</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Name}">Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= name}">Name</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path= website}">Website</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Volume_24h}">Volume 24</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path= volume_24h}">Volume 24</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
