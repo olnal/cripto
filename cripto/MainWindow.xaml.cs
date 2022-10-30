@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace crypto
 {
@@ -24,19 +25,19 @@ namespace crypto
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IApiClient _client;
+        private readonly IApiClient _apiClient;
         private readonly ISearchClient _searchClient;
         public MainWindow()
         {
-            _client = new ApiClient();
-            _searchClient = new SearchClient(_client);
+            _apiClient = new ApiClient();
+            _searchClient = new SearchClient(_apiClient);
             InitializeComponent();
-            MainFrame.Content = new MainPage(_client);
+            MainFrame.Content = new MainPage(_apiClient);
         }
 
         private void btnMainPage(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new MainPage(_client);
+            MainFrame.Content = new MainPage(_apiClient);
 
         }
 
@@ -49,10 +50,19 @@ namespace crypto
         {
             MainFrame.Content = new DetailsExchange(_searchClient);
         }
-
-        private void btnConvertation(object sender, RoutedEventArgs e)
+        private async void btnConvertation(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new Convertation(_searchClient);
+            Convertation page = new Convertation(_apiClient);
+            await page.Get();
+            MainFrame.Content = page;
         }
+
+        //private async Task btnConvertation(object sender, RoutedEventArgs e)
+        //{
+        //    MainFrame.Content = new Convertation(_apiClient);
+        //    //Convertation page= new Convertation(_apiClient);
+        //    //await page.Get();
+        //    //MainFrame.Content = page;            
+        //}
     }
 }

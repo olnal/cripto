@@ -22,21 +22,19 @@
             <Label Content="Convertation"></Label>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Content="Enter ID or Symbol of market from:"/>
-            <TextBox x:Name="ExchangeIdInput1" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
+            <Label Content="Choose Symbol of market from:"/>
+            <ComboBox x:Name="FirstCurrency" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
             <Label Content="Enter count from"/>
             <TextBox x:Name="ExchangeCount1" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="Enter ID or Symbol of market to:"/>
-            <TextBox x:Name="ExchangeIdInput2" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
+            <ComboBox x:Name="SecondCurrency" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
             <Label Content="Result"/>
             <Label x:Name="ExchangeCount2" BorderBrush="Black"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <Button MaxWidth="100" Content="Convert" HorizontalAlignment="Center" Click="buttonConvert"></Button>
-            <ComboBox x:Name="FirstCurrency" Width="120"/>
-
         </StackPanel>
     </Grid>
 </Page>

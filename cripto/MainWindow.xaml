@@ -20,7 +20,7 @@
             <Button Content ="Main" MinWidth="100" Click="btnMainPage"></Button>
             <Button Content="Detail Asset" MinWidth="100" Margin="10,0,0,0" Click="btnDetailsAsset"></Button>
             <Button Content="Detail Exchange" MinWidth="100" Margin="10,0,0,0" Click="btnDateilsExchange"></Button>
-            <Button Content="Convertion" MinWidth="100" Margin="10,0,0,0" Click="btnConvertation"></Button>
+            <Button MinWidth="100" Margin="10,0,0,0" Click="btnConvertation" Content="Convertation"/>
         </StackPanel>
         <Frame x:Name="MainFrame" Margin="0,35,0,0" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

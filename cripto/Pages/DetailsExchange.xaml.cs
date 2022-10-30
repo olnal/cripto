@@ -36,12 +36,6 @@ namespace crypto.Pages
                 ExchangeNameValue.Content = ex.name;
                 Volume24Value.Content = ex.volume_24h;
                 Website.Content = ex.website;
-                Hyperlink hyperlink = new Hyperlink();
-                Run run = new Run();
-                run.Text = ex.website;
-                hyperlink.NavigateUri = new Uri(ex.website);
-                hyperlink.Inlines.Add(run);
-                Website.Content = hyperlink;
             }
             else
             {

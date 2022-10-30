@@ -39,9 +39,6 @@
             <StackPanel>
                 <Label Content="Website"/>
                 <Label x:Name="Website"/>
-                <TextBlock x:Name="Link" Visibility="Collapsed">
-                        <Hyperlink Click="hyperlink_Click">ссылка на другую страницу!</Hyperlink>
-                </TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>

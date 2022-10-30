@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace crypto.Pages
 {
@@ -23,17 +24,26 @@ namespace crypto.Pages
     /// </summary>
     public partial class Convertation : Page
     {
-        private readonly ISearchClient _client;
-        public Convertation(ISearchClient client)
+        private readonly IApiClient _client;
+        private List<Market> _marketData;
+        public Convertation(IApiClient client)
         {
             _client = client;
             InitializeComponent();
         }
-
-        private async void buttonConvert(object sender, RoutedEventArgs e)
+        public async Task Get()
         {
-            Market marketFirst = await _client.GetMarketSearch(ExchangeIdInput1.Text);
-            Market marketSecond = await _client.GetMarketSearch(ExchangeIdInput2.Text);
+            _marketData = await _client.GetMarket();
+            var currencies = _marketData.Select(n => n.symbol).ToList();
+            FirstCurrency.ItemsSource = currencies;
+            SecondCurrency.ItemsSource = currencies;
+        }
+
+        private void buttonConvert(object sender, RoutedEventArgs e)
+        {
+            
+            Market marketFirst = _marketData.Where(n => n.symbol == FirstCurrency.Text).FirstOrDefault();
+            Market marketSecond = _marketData.Where(n =>  n.symbol == SecondCurrency.Text).FirstOrDefault();
             if (marketFirst != null && marketSecond != null)
             {
                 double result = ConvertToDouble(ExchangeCount1.Text) * marketSecond.price / marketFirst.price;
