@@ -1,4 +1,4 @@
-﻿<Page x:Class="crypto.Pages.Detail"
+﻿<Page x:Class="crypto.Pages.DetailAsser"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -26,11 +26,15 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <Label Content="Asset ID"/>
-                        <Label Content="Some ID" x:Name="AssetIDValue"/>
+                        <Label x:Name="AssetIDValue"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Asset Name"/>
-                        <Label x:Name="CurrencyNameValue"/>
+                        <Label x:Name="AssetNameValue"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Volume 24"/>
+                        <Label x:Name="Volume24Value"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Change 1h"/>
@@ -45,14 +49,19 @@
                         <Label x:Name="Change7dValue"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Volume 24"/>
-                        <Label x:Name="Volume24Value"/>
+                        <Label Content="Status"/>
+                        <Label x:Name="StatusValue"/>
                     </StackPanel>
                 </StackPanel>
-                <Label Content="Description:"/>
-                <TextBlock x:Name="CurrencyDescription" Text="Some Description" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="6,0,0,0"/>
+                <StackPanel>
+                    <Label Content="Created at"/>
+                    <Label x:Name="CreatedValue"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Update at"/>
+                    <Label x:Name="UpdatedValue"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
-
     </Grid>
 </Page>

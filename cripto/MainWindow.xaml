@@ -18,7 +18,8 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <Button Content ="Main" MinWidth="100" Click="btnClickP1"></Button>
-            <Button Content="Detail" MinWidth="100" Margin="10,0,0,0" Click="btnClickP2"></Button>
+            <Button Content="Detail Asset" MinWidth="100" Margin="10,0,0,0" Click="btnClickP2"></Button>
+            <Button Content="Detail Exchange" MinWidth="100" Margin="10,0,0,0" Click="btnClickP3"></Button>
         </StackPanel>
         <Frame x:Name="MainFrame" Margin="0,35,0,0" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

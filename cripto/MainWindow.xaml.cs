@@ -40,7 +40,12 @@ namespace crypto
 
         private void btnClickP2(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new Detail(_client);
+            MainFrame.Content = new DetailAsser(_client);
+        }
+
+        private void btnClickP3(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DetailExchange(_client);
         }
     }
 }

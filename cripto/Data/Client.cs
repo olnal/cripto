@@ -38,7 +38,7 @@ namespace crypto.Data
 
         public async Task<List<Asset>> GetAsset()
         {
-            using HttpResponseMessage response = await _httpClient.GetAsync("assets?size=100&start=100");
+            using HttpResponseMessage response = await _httpClient.GetAsync("assets?size=100&start=1");
             using HttpContent content = response.Content;
             string myContent = await content.ReadAsStringAsync();
             AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);            
@@ -61,10 +61,16 @@ namespace crypto.Data
             MarketArr json = JsonConvert.DeserializeObject<MarketArr>(myContent);
             return json.markets.ToList<Market>();            
         }
-        public Asset GetAssetSearch(string search)
+        public async Task<Asset> GetAssetSearch(string search)
         {
-            //TODO
-            return new Asset();
+            List<Asset> assets=await this.GetAsset();
+            return assets.Where(n => n.assetId == search || n.name == search).FirstOrDefault();
+        }
+
+        public async Task<Exchange> GetExchangeSearch(string search)
+        {
+            List<Exchange> exchanges = await this.GetExchange();
+            return exchanges.Where(n => n.exchange_id == search || n.name == search).FirstOrDefault();
         }
     }
 }

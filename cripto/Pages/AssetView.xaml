@@ -9,7 +9,7 @@
       Title="AssetView">
 
     <Grid Background="White" >
-        <ListView Name="CurrencyListAsset" VerticalAlignment="Top" Grid.Row="1" ItemsSource="{Binding assets}" HorizontalContentAlignment="Left" >
+        <ListView Name="CurrencyListAsset" VerticalAlignment="Top" Grid.Row="0" ItemsSource="{Binding assets}" HorizontalContentAlignment="Left" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path= asset_id}">Asset ID</GridViewColumn>
