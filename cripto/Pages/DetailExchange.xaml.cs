@@ -40,7 +40,7 @@ namespace crypto.Pages
                 Run run = new Run();
                 run.Text = ex.website;
                 hyperlink.NavigateUri = new Uri(ex.website);
-                //hyperlink.Inlines.Add(run);
+                hyperlink.Inlines.Add(run);
                 Website.Content = hyperlink;
             }
             else
