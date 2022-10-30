@@ -17,9 +17,10 @@
                     <GradientStop Color="#FF554E4E" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Button Content ="Main" MinWidth="100" Click="btnClickP1"></Button>
-            <Button Content="Detail Asset" MinWidth="100" Margin="10,0,0,0" Click="btnClickP2"></Button>
-            <Button Content="Detail Exchange" MinWidth="100" Margin="10,0,0,0" Click="btnClickP3"></Button>
+            <Button Content ="Main" MinWidth="100" Click="btnMainPage"></Button>
+            <Button Content="Detail Asset" MinWidth="100" Margin="10,0,0,0" Click="btnDetailsAsset"></Button>
+            <Button Content="Detail Exchange" MinWidth="100" Margin="10,0,0,0" Click="btnDateilsExchange"></Button>
+            <Button Content="Convertion" MinWidth="100" Margin="10,0,0,0" Click="btnConvertation"></Button>
         </StackPanel>
         <Frame x:Name="MainFrame" Margin="0,35,0,0" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

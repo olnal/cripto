@@ -32,20 +32,25 @@ namespace crypto
             MainFrame.Content = new MainPage(_client);
         }
 
-        private void btnClickP1(object sender, RoutedEventArgs e)
+        private void btnMainPage(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new MainPage(_client);
 
         }
 
-        private void btnClickP2(object sender, RoutedEventArgs e)
+        private void btnDetailsAsset(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new DetailAsser(_client);
+            MainFrame.Content = new DetailsAsser(_client);
         }
 
-        private void btnClickP3(object sender, RoutedEventArgs e)
+        private void btnDateilsExchange(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new DetailExchange(_client);
+            MainFrame.Content = new DetailsExchange(_client);
+        }
+
+        private void btnConvertation(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Convertation(_client);
         }
     }
 }

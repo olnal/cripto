@@ -1,0 +1,41 @@
+﻿<Page x:Class="crypto.Pages.Convertation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:crypto.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Convertation">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="101*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Content="Convertation"></Label>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Label Content="Enter ID or Symbol of market from:"/>
+            <TextBox x:Name="ExchangeIdInput1" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
+            <Label Content="Enter count from"/>
+            <TextBox x:Name="ExchangeCount1" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Enter ID or Symbol of market to:"/>
+            <TextBox x:Name="ExchangeIdInput2" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
+            <Label Content="Result"/>
+            <Label x:Name="ExchangeCount2" BorderBrush="Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+            <Button MaxWidth="100" Content="Convert" HorizontalAlignment="Center" Click="buttonConvert"></Button>
+
+        </StackPanel>
+    </Grid>
+</Page>

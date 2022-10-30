@@ -13,5 +13,6 @@ namespace crypto.Data
         public Task<List<Market>> GetMarket();
         public Task<Asset> GetAssetSearch(string search);
         public Task<Exchange> GetExchangeSearch(string search);
+        public Task<Market> GetMarketSearch(string search);
     }
 }

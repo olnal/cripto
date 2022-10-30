@@ -38,10 +38,10 @@ namespace crypto.Data
 
         public async Task<List<Asset>> GetAsset()
         {
-            using HttpResponseMessage response = await _httpClient.GetAsync("assets?size=100&start=1");
+            using HttpResponseMessage response = await _httpClient.GetAsync("assets?size=12&start=1");
             using HttpContent content = response.Content;
             string myContent = await content.ReadAsStringAsync();
-            AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);            
+            AssetArr json = JsonConvert.DeserializeObject<AssetArr>(myContent);
             return json.assets.ToList<Asset>();
         }
         public async Task<List<Exchange>> GetExchange()
@@ -55,15 +55,15 @@ namespace crypto.Data
 
         public async Task<List<Market>> GetMarket()
         {
-            using HttpResponseMessage response = await _httpClient.GetAsync("markets?size=100&start=1");
+            using HttpResponseMessage response = await _httpClient.GetAsync("markets?size=12&start=1");
             using HttpContent content = response.Content;
             string myContent = await content.ReadAsStringAsync();
             MarketArr json = JsonConvert.DeserializeObject<MarketArr>(myContent);
-            return json.markets.ToList<Market>();            
+            return json.markets.ToList<Market>();
         }
         public async Task<Asset> GetAssetSearch(string search)
         {
-            List<Asset> assets=await this.GetAsset();
+            List<Asset> assets = await this.GetAsset();
             return assets.Where(n => n.assetId == search || n.name == search).FirstOrDefault();
         }
 
@@ -71,6 +71,11 @@ namespace crypto.Data
         {
             List<Exchange> exchanges = await this.GetExchange();
             return exchanges.Where(n => n.exchange_id == search || n.name == search).FirstOrDefault();
+        }
+        public async Task<Market> GetMarketSearch(string search)
+        {
+            List<Market> market = await this.GetMarket();
+            return market.Where(n => n.exchange_id == search || n.symbol == search).FirstOrDefault();
         }
     }
 }

@@ -19,10 +19,10 @@ namespace crypto.Pages
     /// <summary>
     /// Interaction logic for DetailExchange.xaml
     /// </summary>
-    public partial class DetailExchange : Page
+    public partial class DetailsExchange : Page
     {
         private readonly IClient _client;
-        public DetailExchange(IClient client)
+        public DetailsExchange(IClient client)
         {
             _client = client;
             InitializeComponent();

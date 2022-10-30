@@ -17,12 +17,12 @@ using System.Xml.Serialization;
 namespace crypto.Pages
 {
     /// <summary>
-    /// Interaction logic for DetailAsser.xaml
+    /// Interaction logic for DetailsAsser.xaml
     /// </summary>
-    public partial class DetailAsser : Page
+    public partial class DetailsAsser : Page
     {
         private readonly IClient _client;
-        public DetailAsser(IClient client)
+        public DetailsAsser(IClient client)
         {
             _client = client;
             InitializeComponent();

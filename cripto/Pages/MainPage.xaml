@@ -8,25 +8,25 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
 
-    <Grid Background="White">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="146*"/>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="113*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Background="Beige" Margin="0,0,0,132" Grid.RowSpan="2">
             <Label Content="Top Currencies" Grid.Row="0"></Label>
-            <Grid>
-                <Button MaxWidth="100" HorizontalAlignment="Left" Click="buttonGetExchange">Get Exchange</Button>
-                <Button MaxWidth="100"  Click="buttonGetAsset" Margin="-250,0,240,-0">Get Asset</Button>
-                <Button MaxWidth="100"  Click="buttonGetMarket" Margin="0,0,240,0">Get Market</Button>
+            <Grid >
+                <Button Width="100" HorizontalAlignment="Left" Click="buttonGetExchange">Get Exchange</Button>
+                <Button Width="100"  HorizontalAlignment="Left" Click="buttonGetAsset" Margin="120,0,0,0">Get Asset</Button>
+                <Button Width="100" HorizontalAlignment="Left"  Click="buttonGetMarket" Margin="240,0,0,0">Get Market</Button>
             </Grid>
         </StackPanel>
-        
-            <StackPanel Grid.Row="1" Grid.RowSpan="3" Orientation="Horizontal"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
-                <Frame Name="DataView" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden" ></Frame>
-            </StackPanel>
-        
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="3" Background="LightGray" Height="371" VerticalAlignment="Top">
+            <Frame Name="DataView" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden" ></Frame>
+        </StackPanel>
+
     </Grid>
 </Page>
