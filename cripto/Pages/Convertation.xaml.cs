@@ -1,4 +1,4 @@
-﻿using crypto.Data;
+﻿using crypto.Services;
 using crypto.Model;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace crypto.Pages
 {
@@ -22,24 +23,21 @@ namespace crypto.Pages
     /// </summary>
     public partial class Convertation : Page
     {
-        private readonly IClient _client;
-        public Convertation(IClient client)
+        private readonly ISearchClient _client;
+        public Convertation(ISearchClient client)
         {
             _client = client;
             InitializeComponent();
         }
+
         private async void buttonConvert(object sender, RoutedEventArgs e)
         {
             Market marketFirst = await _client.GetMarketSearch(ExchangeIdInput1.Text);
             Market marketSecond = await _client.GetMarketSearch(ExchangeIdInput2.Text);
-
-            
-
             if (marketFirst != null && marketSecond != null)
             {
-                double x = ConvertToDouble(ExchangeCount1.Text);
-                double y = x * marketSecond.price / marketFirst.price;
-                ExchangeCount2.Content = y.ToString();                
+                double result = ConvertToDouble(ExchangeCount1.Text) * marketSecond.price / marketFirst.price;
+                ExchangeCount2.Content = result.ToString();
             }
             else
             {

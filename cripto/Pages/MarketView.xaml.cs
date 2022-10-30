@@ -1,4 +1,4 @@
-﻿using crypto.Data;
+﻿using crypto.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,9 +20,9 @@ namespace crypto.Pages
     /// </summary>
     public partial class MarketView : Page
     {
-        private readonly IClient _client;
+        private readonly IApiClient _client;
 
-        public MarketView(IClient client)
+        public MarketView(IApiClient client)
         {
             _client = client;
             InitializeComponent();

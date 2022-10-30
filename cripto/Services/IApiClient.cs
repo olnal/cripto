@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace crypto.Data
+namespace crypto.Services
 {
-    public interface IClient
+    public interface IApiClient
     {
         public Task<List<Asset>> GetAsset();
         public Task<List<Exchange>> GetExchange();
         public Task<List<Market>> GetMarket();
-        public Task<Asset> GetAssetSearch(string search);
-        public Task<Exchange> GetExchangeSearch(string search);
-        public Task<Market> GetMarketSearch(string search);
+        
     }
 }

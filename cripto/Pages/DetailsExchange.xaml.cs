@@ -1,4 +1,4 @@
-﻿using crypto.Data;
+﻿using crypto.Services;
 using crypto.Model;
 using System;
 using System.Collections.Generic;
@@ -21,8 +21,8 @@ namespace crypto.Pages
     /// </summary>
     public partial class DetailsExchange : Page
     {
-        private readonly IClient _client;
-        public DetailsExchange(IClient client)
+        private readonly ISearchClient _client;
+        public DetailsExchange(ISearchClient client)
         {
             _client = client;
             InitializeComponent();

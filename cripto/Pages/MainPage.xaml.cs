@@ -1,6 +1,6 @@
 ﻿using crypto.Model;
 using crypto.Pages;
-using crypto.Data;
+using crypto.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,9 +21,9 @@ namespace crypto.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        private readonly IClient _client;
+        private readonly IApiClient _client;
 
-        public MainPage(IClient client)
+        public MainPage(IApiClient client)
         {
             InitializeComponent();
             _client = client;

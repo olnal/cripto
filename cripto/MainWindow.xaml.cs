@@ -1,4 +1,4 @@
-﻿using crypto.Data;
+﻿using crypto.Services;
 using crypto.Model;
 using crypto.Pages;
 using System;
@@ -24,10 +24,12 @@ namespace crypto
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IClient _client;
+        private readonly IApiClient _client;
+        private readonly ISearchClient _searchClient;
         public MainWindow()
         {
-            _client = new Client();
+            _client = new ApiClient();
+            _searchClient = new SearchClient(_client);
             InitializeComponent();
             MainFrame.Content = new MainPage(_client);
         }
@@ -40,17 +42,17 @@ namespace crypto
 
         private void btnDetailsAsset(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new DetailsAsser(_client);
+            MainFrame.Content = new DetailsAsser(_searchClient);
         }
 
         private void btnDateilsExchange(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new DetailsExchange(_client);
+            MainFrame.Content = new DetailsExchange(_searchClient);
         }
 
         private void btnConvertation(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new Convertation(_client);
+            MainFrame.Content = new Convertation(_searchClient);
         }
     }
 }

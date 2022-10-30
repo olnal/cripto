@@ -1,4 +1,4 @@
-﻿using crypto.Data;
+﻿using crypto.Services;
 using crypto.Model;
 using System;
 using System.Collections.Generic;
@@ -21,9 +21,9 @@ namespace crypto.Pages
     /// </summary>
     public partial class ExchangeView : Page
     {
-        private readonly IClient _client;
+        private readonly IApiClient _client;
 
-        public ExchangeView(IClient client)
+        public ExchangeView(IApiClient client)
         {
             _client = client;
             InitializeComponent();           
