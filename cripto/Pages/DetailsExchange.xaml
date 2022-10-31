@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DetailsExchange">
 
-    <Grid Background="White">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -16,10 +16,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Label Content="Information"></Label>
+            <Label Content="Information" Background="Beige"></Label>
             <Label Content="Enter ID of exchange:"/>
-            <TextBox x:Name="ExchangeIdInput" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
-            <Button MaxWidth="100" Content="Find Exchange" HorizontalAlignment="Left" Click="buttonGetExchange"></Button>
+            <ComboBox x:Name="List"  Width="120" HorizontalAlignment="Left"/>
+            <Button MaxWidth="100" Content="Detail Exchanges" HorizontalAlignment="Left" Click="buttonDetailExchanges" Background="#FFA89D9D"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.RowSpan="3">
             <StackPanel Orientation="Horizontal">
@@ -38,7 +38,12 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="Website"/>
-                <Label x:Name="Website"/>
+
+                <TextBlock x:Name="Link">
+                        <Hyperlink Click="hyperlink_Click" >
+                            <Label x:Name="Website"/>
+                        </Hyperlink>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>

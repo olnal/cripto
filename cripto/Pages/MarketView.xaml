@@ -8,7 +8,7 @@
       d:DesignHeight="225" d:DesignWidth="800"
       Title="MarketView">
 
-    <Grid>
+    <Grid Background="LightGray">
         <ListView Name="CurrencyListMarket" VerticalAlignment="Top" Grid.Row="1" ItemsSource="{Binding Assets}" HorizontalContentAlignment="Left">
             <ListView.View>
                 <GridView>

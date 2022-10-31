@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <SolidColorBrush x:Key="TextBoxBackground1" Color="White"/>
+        <SolidColorBrush x:Key="TextBoxBackground1" Color="LightGray"/>
     </Window.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">

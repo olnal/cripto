@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace crypto.Pages
 {
@@ -21,15 +23,27 @@ namespace crypto.Pages
     /// </summary>
     public partial class DetailsAsser : Page
     {
-        private readonly ISearchClient _client;
-        public DetailsAsser(ISearchClient client)
+
+        private readonly ISearchClient _searchClient;
+        private readonly IApiClient _apiClient;
+        private List<Asset> _exchangeData;
+        public DetailsAsser(ISearchClient searchClient, IApiClient apiClient)
         {
-            _client = client;
+            _apiClient = apiClient;
+            _searchClient = searchClient;
             InitializeComponent();
         }
+
+        public async Task Get()
+        {
+            _exchangeData = await _apiClient.GetAsset();
+            var currencies = _exchangeData.Select(n => n.name).ToList();
+            List.ItemsSource = currencies;
+        }
+        
         private async void buttonGetAsset(object sender, RoutedEventArgs e)
         {
-            Asset ass = await _client.GetAssetSearch(AssetIdInput.Text);
+            Asset ass = await _searchClient.GetAssetSearch(List.Text);
             if (ass != null) 
             { 
                 AssetIDValue.Content = ass.assetId;

@@ -18,9 +18,9 @@
         <StackPanel Grid.Row="0" Background="Beige" Margin="0,0,0,132" Grid.RowSpan="2">
             <Label Content="Top Currencies" Grid.Row="0"></Label>
             <Grid >
-                <Button Width="100" HorizontalAlignment="Left" Click="buttonGetExchange">Get Exchange</Button>
-                <Button Width="100"  HorizontalAlignment="Left" Click="buttonGetAsset" Margin="120,0,0,0">Get Asset</Button>
-                <Button Width="100" HorizontalAlignment="Left"  Click="buttonGetMarket" Margin="240,0,0,0">Get Market</Button>
+                <Button Width="100" Background="#FFA89D9D" HorizontalAlignment="Left" Click="buttonGetExchange">Get Exchange</Button>
+                <Button Width="100"  Background="#FFA89D9D" HorizontalAlignment="Left" Click="buttonGetAsset" Margin="120,0,0,0">Get Asset</Button>
+                <Button Width="100" Background="#FFA89D9D" HorizontalAlignment="Left"  Click="buttonGetMarket" Margin="240,0,0,0">Get Market</Button>
             </Grid>
         </StackPanel>
 

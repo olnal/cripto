@@ -80,7 +80,7 @@ namespace crypto.Pages
                     }
                     catch
                     {
-                        throw new Exception("Wrong string-to-double format");
+                        MessageBox.Show("Wrong number");
                     }
                 }
             }

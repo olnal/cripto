@@ -9,7 +9,7 @@
       Title="Detail">
 
     <Grid>
-        <Grid Background="White">
+        <Grid Background="LightGray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -17,10 +17,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <Label Content="Information"></Label>
+                <Label Content="Information" Background="Beige"></Label>
                 <Label Content="Enter ID of asset:"/>
-                <TextBox x:Name="AssetIdInput" MaxHeight="20" Width="300" HorizontalAlignment="Left"/>
-                <Button MaxWidth="100" Content="Find Asset" HorizontalAlignment="Left" Click="buttonGetAsset"></Button>
+                <ComboBox x:Name="List"  Width="120" HorizontalAlignment="Left"/>
+                <Button MaxWidth="100" Background="#FFA89D9D" Content="Find Asset" HorizontalAlignment="Left" Click="buttonGetAsset"></Button>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.RowSpan="3">
                 <StackPanel Orientation="Horizontal">

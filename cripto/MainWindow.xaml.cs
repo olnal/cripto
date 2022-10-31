@@ -41,28 +41,24 @@ namespace crypto
 
         }
 
-        private void btnDetailsAsset(object sender, RoutedEventArgs e)
+        private async  void btnDetailsAsset(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new DetailsAsser(_searchClient);
+            DetailsAsser page = new DetailsAsser(_searchClient, _apiClient);
+            await page.Get();
+            MainFrame.Content = page;            
         }
 
-        private void btnDateilsExchange(object sender, RoutedEventArgs e)
+        private async void btnDateilsExchange(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new DetailsExchange(_searchClient);
+            DetailsExchange page = new DetailsExchange(_searchClient,_apiClient);
+            await page.Get();
+            MainFrame.Content = page;
         }
         private async void btnConvertation(object sender, RoutedEventArgs e)
         {
             Convertation page = new Convertation(_apiClient);
             await page.Get();
             MainFrame.Content = page;
-        }
-
-        //private async Task btnConvertation(object sender, RoutedEventArgs e)
-        //{
-        //    MainFrame.Content = new Convertation(_apiClient);
-        //    //Convertation page= new Convertation(_apiClient);
-        //    //await page.Get();
-        //    //MainFrame.Content = page;            
-        //}
+        }        
     }
 }
