@@ -11,22 +11,22 @@
     <Grid>
         <Grid Background="LightGray">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="62*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="75*"/>
+                <RowDefinition Height="75*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0">
-                <Label Content="Information" Background="Beige"></Label>
-                <Label Content="Enter ID of asset:"/>
+            <StackPanel Grid.Row="0" >
+                <Label x:Name="label" Content="Information" Background="Beige"></Label>
+                <Label Content="Enter name of asset:"/>
                 <ComboBox x:Name="List"  Width="120" HorizontalAlignment="Left"/>
                 <Button MaxWidth="100" Background="#FFA89D9D" Content="Find Asset" HorizontalAlignment="Left" Click="buttonGetAsset"></Button>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.RowSpan="3">
+            <StackPanel Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <Label Content="Asset ID"/>
-                        <Label x:Name="AssetIDValue"/>
+                        <Label x:Name="AssetIDValue" />
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Asset Name"/>
@@ -53,12 +53,14 @@
                         <Label x:Name="StatusValue"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <StackPanel Width="150" >
                     <Label Content="Created at"/>
                     <Label x:Name="CreatedValue"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Update at"/>
+                    <Label Content="Update at" Width="150"/>
                     <Label x:Name="UpdatedValue"/>
                 </StackPanel>
             </StackPanel>

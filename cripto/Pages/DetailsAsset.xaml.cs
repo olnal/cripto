@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Xml.Serialization;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 
 namespace crypto.Pages
 {
@@ -55,11 +57,50 @@ namespace crypto.Pages
                 StatusValue.Content = ass.status;
                 CreatedValue.Content = ass.created_at;
                 UpdatedValue.Content = ass.updated_at;
+                ForegroundColor(ass);
             }
             else
             {
                 MessageBox.Show("Not found","!!!");
             }
         }
+        private void ForegroundColor(Asset asset)
+        {
+            if (asset.volume_24h >= 0)
+            {
+                Volume24Value.Foreground = Brushes.Green;
+            }
+            else
+            {
+                Volume24Value.Foreground = Brushes.Red;
+            }
+
+            if (asset.change_1h >= 0)
+            {
+                Change1hValue.Foreground = Brushes.Green;
+            }
+            else
+            {
+                Change1hValue.Foreground = Brushes.Red;
+            }
+
+            if (asset.change_24h >= 0)
+            {
+                Change24hValue.Foreground = Brushes.Green;
+            }
+            else
+            {
+                Change24hValue.Foreground = Brushes.Red;
+            }
+            if (asset.change_7d >= 0)
+            {
+                Change7dValue.Foreground = Brushes.Green;
+            }
+            else
+            {
+                Change7dValue.Foreground = Brushes.Red;
+            }
+        }
+        
     }
 }
